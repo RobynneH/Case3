@@ -605,7 +605,7 @@ st.divider()
 # In[42]:
 
 
-path = 'laadpaaldata.csv'
+path = 'laadpalen_schoon.csv'
 laadpaal = pd.read_csv(path)
 laadpaal['Started'] = pd.to_datetime(laadpaal['Started'], errors='coerce') #verwijderd één varibale die in het schikkeljaar viel
 laadpaal['Ended'] = pd.to_datetime(laadpaal['Ended'], errors = 'coerce')
