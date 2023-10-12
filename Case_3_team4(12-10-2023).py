@@ -1399,50 +1399,6 @@ st.write("""
     Ten slotte is er ook een begrenzing die er voor zorgt dat de gebruiker niet te ver uitzoomt.
 """)
 
-# In[47]:
-
-
-
-laadpaal.index = laadpaal.index.astype(int)
-
- 
-
-# maak scatterplot
-fig = px.scatter(laadpaal, x='Connected_Zonder_Laden', y='MaxPower', trendline='ols')
-
- 
-
-# layout
-fig.update_layout(
-    title='Aangesloten zonder te laden tegen maximaal vermogen',
-    xaxis_title='Aangesloten zonder te laden in uren',
-    yaxis_title='Maximaal vermogen in Watt',
-    showlegend=True
-)
-
- 
-
-fig.update_traces(
-    line=dict(
-        color='red',  
-        width=2  
-    ),
-    marker =dict(
-    color = 'blue')
-)
-col13, col14 = st.columns(2)
-
- 
-
-with col13:
-    st.write('')
-    st.write('')
-    st.write('')
-    st.write("Hiernaast zie je dat de maximaal laadvermogen van autos negatief gecorreleerd is met het aangesloten zonder te laden. Dit wil zeggen dat hoe zwakker het maximale laad vermogen hoe langer iemand gemiddeld aangesloten is zonder te laden.")
-with col14:
-    st.plotly_chart(fig)
-
-
 # In[64]:
 
 
