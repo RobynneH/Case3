@@ -363,7 +363,28 @@ st.plotly_chart(fig)
 # In[23]:
 
 
-Hybrid=pd.read_csv("auto_hybride.csv")
+# # import te grote datasets
+# Hybrid=pd.read_csv("auto_hybride.csv")
+# brands=pd.read_csv("Elektrische_ autos_informatie.csv")
+
+
+# # selecteer van de dataframes de benodigde colommen en maak een nieuwe csv
+# hybride_auto_klein = Hybrid[['Kenteken','Klasse hybride elektrisch voertuig']]
+# hybride_auto_klein.to_csv('hybride_auto_klein.csv', index =False)
+
+# # selecteer de colommen en verdeel de rows in twee, maak hiervan twee bestanden
+# brands_kleiner1 = pd.read_csv("Elektrische_ autos_informatie.csv", nrows = 749303,
+#                               usecols = ['Kenteken', 'Voertuigsoort', 'Merk'])
+# brands_kleiner2 = pd.read_csv("Elektrische_ autos_informatie.csv", skiprows = 749304,
+#                               usecols = ['Kenteken', 'Voertuigsoort', 'Merk'], names = ['Kenteken', 'Voertuigsoort', 'Merk'])
+# brands_kleiner1.to_csv('brands1.csv', index = False)
+# brands_kleiner2.to_csv('brands2.csv', index = False)
+
+#  roep de kleine datasets aan met de originele dataframe naam
+Hybrid=pd.read_csv("hybride_auto_klein.csv")
+brands1=pd.read_csv("brands1.csv")
+brands2=pd.read_csv("brands2.csv")
+brands=pd.concat([brands1,brands2])
 Hybrid.head()
 
 
@@ -377,22 +398,21 @@ ev.head()
 # In[25]:
 
 
-kenteken=pd.read_csv("auto_hybride.csv")
+kenteken= Hybrid
 kenteken.head()
 
 
 # In[26]:
 
 
-brands=pd.read_csv("Elektrische_ autos_informatie.csv")
 brands.head()
 
 
 # In[27]:
 
 
-columns_to_drop = ["Catalogusprijs","Handelsbenaming", "Europese voertuigcategorie", "Type","Variant","Uitvoering","Zuinigheidsclassificatie","Datum tenaamstelling"]  # List of column names to drop
-brands.drop(columns=columns_to_drop, axis=1, inplace=True)
+# columns_to_drop = ["Catalogusprijs","Handelsbenaming", "Europese voertuigcategorie", "Type","Variant","Uitvoering","Zuinigheidsclassificatie","Datum tenaamstelling"]  # List of column names to drop
+# brands.drop(columns=columns_to_drop, axis=1, inplace=True)
 
 
 # In[28]:
@@ -420,7 +440,7 @@ st.write('De eerste vijf regels van de dataset: ', head_merge)
 
 #To confirm only electric vehicles are present
 
-merged_brands["Brandstof omschrijving"].unique()
+# merged_brands["Brandstof omschrijving"].unique()
 
 
 # In[32]:
@@ -462,7 +482,7 @@ merged_brands.info()
 # Check for duplicates
 
 
-duplicates3 = merged_brands.duplicated(subset=['Kenteken', 'Voertuigsoort', 'Merk', 'Brandstof omschrijving',
+duplicates3 = merged_brands.duplicated(subset=['Kenteken', 'Voertuigsoort', 'Merk',
        'Klasse hybride elektrisch voertuig'])
 
 # To count the number of duplicate rows
