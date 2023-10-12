@@ -605,19 +605,19 @@ st.divider()
 # In[42]:
 
 
-path = 'laadpalen_schoon.csv'
-laadpaal = pd.read_csv(path)
-laadpaal['Started'] = pd.to_datetime(laadpaal['Started'], errors='coerce') #verwijderd één varibale die in het schikkeljaar viel
-laadpaal['Ended'] = pd.to_datetime(laadpaal['Ended'], errors = 'coerce')
-laadpaal = laadpaal[laadpaal['ChargeTime']>= 0]
-laadpaal['Connected_Zonder_Laden'] = laadpaal['ConnectedTime']- laadpaal['ChargeTime']
+# path = 'laadpaaldata.csv'
+# laadpaal = pd.read_csv(path)
+# laadpaal['Started'] = pd.to_datetime(laadpaal['Started'], errors='coerce') #verwijderd één varibale die in het schikkeljaar viel
+# laadpaal['Ended'] = pd.to_datetime(laadpaal['Ended'], errors = 'coerce')
+# laadpaal = laadpaal[laadpaal['ChargeTime']>= 0]
+# laadpaal['Connected_Zonder_Laden'] = laadpaal['ConnectedTime']- laadpaal['ChargeTime']
 
-twenty_fifth = laadpaal["MaxPower"].quantile(0.25)
-MaxPower_median = laadpaal["MaxPower"].median()
-seventy_fifth = laadpaal["MaxPower"].quantile(0.75)
-power_labels = ['Extreem_laag', 'Laag', 'Medium', 'Hoog']
-power_ranges = [0, twenty_fifth, MaxPower_median, seventy_fifth, laadpaal["MaxPower"].max()]
-laadpaal['levels'] = pd.cut(laadpaal["MaxPower"], bins=power_ranges, labels=power_labels)
+# twenty_fifth = laadpaal["MaxPower"].quantile(0.25)
+# MaxPower_median = laadpaal["MaxPower"].median()
+# seventy_fifth = laadpaal["MaxPower"].quantile(0.75)
+# power_labels = ['Extreem_laag', 'Laag', 'Medium', 'Hoog']
+# power_ranges = [0, twenty_fifth, MaxPower_median, seventy_fifth, laadpaal["MaxPower"].max()]
+# laadpaal['levels'] = pd.cut(laadpaal["MaxPower"], bins=power_ranges, labels=power_labels)
 
 
 # In[68]:
