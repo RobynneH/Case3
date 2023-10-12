@@ -53,8 +53,8 @@ st.image(image)
 
 st.write("Dit dashboard maakt gebruik van een aantal datasets. De dataset 'Laadpalen' hebben wij van de docenten verkregen en kunt u met de knop hieronder downloaden:")
 
-with open('laadpaaldata_schoon.csv') as file:
-    st.download_button(label = 'Download laadpaaldata als csv', data = file, file_name = 'laadpaaldata_schoon.csv', mime = 'text/csv')
+with open('laadpalen_schoon.csv') as file:
+    st.download_button(label = 'Download laadpaaldata als csv', data = file, file_name = 'laadpalen_schoon.csv', mime = 'text/csv')
     
 st.write('De tweede dataset gebruiken we via een API, deze dataset hebben wij via de API gedownload en staat nu in de GitHub als .csv-bestand.')
 st.write('De laatste dataset hebben we gedownload via de RDW site (link hieronder). De datasets die wij gebruikt hebben zijn: "Open_Data_RDW__Gekentekende_voertuigen" en "Open_Data_RDW__Gekentekende_voertuigen_brandstof".')
